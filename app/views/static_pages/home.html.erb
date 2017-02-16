@@ -1,0 +1,159 @@
+<% if !logged_in? %>
+	<div class="content">
+		<div class="jumbotron">
+			<div class="caption">
+				<h2>Slick Material Design</h2>
+				<h4>Image Social Network</h4>	
+				<%= link_to "Let's enjoy", signup_path, class: "waves-effect waves-light btn" %>
+			</div>
+		</div>
+		<div class="container present">
+			<div class="overview">
+				<div class="introductory">
+					Nullam blandit gravida viverra. Etiam turpis erat, sagittis sit amet felis non, porta porta justo. Integer ornare nibh nulla, id pulvinar metus cursus semper. Vivamus dictum pellentesque mi. Vivamus ipsum tellus, mattis non ex sed, semper sodales ligula. Vivamus luctus lorem.
+				</div>
+				<div class="features">
+					<div class="feature">
+						<%= fa_icon "th" %>
+						<div class="caption">
+							<div class="title">Responsive</div>
+							Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</div>
+					</div>
+					<div class="feature">
+						<%= fa_icon "th-list" %>
+						<div class="caption">
+							<div class="title">Quality</div>
+							Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</div>
+					</div>
+					<div class="feature">
+						<%= fa_icon "reorder" %>
+						<div class="caption">
+							<div class="title">Support</div>
+							Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="about" id="about-path">
+				<div class="row">
+					<div class="about-caption col-md-4">
+						<h2>Who are we now</h2>
+						<p>THE STORY THAT MADE US WHO WE ARE</p>
+						<p>Ideate integrate food-truck agile ideate thinker-maker-doer user story intuitive hacker integrate workflow Steve Jobs. Steve Jobs pair programming food-truck big data long shadow SpaceTeam agile agile affordances. User centered design food-truck experiential minimum viable product human-centered design prototype viral quantitative vs. qualitative.</p>
+					</div>
+					<div class="about-image col-md-8">
+						<img src="/assets/about.png">
+					</div>
+				</div>
+			</div>
+			<div class="portfolio" id="portfolio-path">
+				<div class="overview">
+					<div class="title">Portfolio</div>
+					<div class="caption">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div>
+				</div>
+				<div class="row">
+					<div class="item col-md-4">
+						<div class="portfolio-pic" id="portfolio-1">
+							<div class="portfolio-content">
+								<span class="label label-primary">productivity</span>
+								<div class="portfolio-title">Morbi mauris diam</div>
+							</div>
+						</div>	
+					</div>
+					<div class="item col-md-4">
+						<div class="portfolio-pic" id="portfolio-2">
+							<div class="portfolio-content">
+								<span class="label label-info">design</span>
+								<div class="portfolio-title">Interdum et malesuada</div>
+							</div>
+						</div>	
+					</div>
+					<div class="item col-md-4">
+						<div class="portfolio-pic" id="portfolio-3">
+							<div class="portfolio-content">
+								<span class="label label-danger">productivity</span>
+								<div class="portfolio-title">Duis laoreet tellus arcu</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="item col-md-6">
+						<div class="portfolio-pic" id="portfolio-4">
+							<div class="portfolio-content">
+								<span class="label label-warning">productivity</span>
+								<div class="portfolio-title">Proin aliquet nibh varius</div>
+							</div>
+						</div>	
+					</div>
+					<div class="item col-md-6">
+						<div class="portfolio-pic" id="portfolio-5">
+							<div class="portfolio-content">
+								<span class="label label-primary">productivity</span>
+								<div class="portfolio-title">Our Awesome Project</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div class="row">
+					<div class="item col-md-4">
+						<div class="portfolio-pic" id="portfolio-6">
+							<div class="portfolio-content">
+								<span class="label label-success">design</span>
+								<div class="portfolio-title">Up branch to easily missed</div>
+							</div>
+						</div>	
+					</div>
+					<div class="item col-md-4">
+						<div class="portfolio-pic" id="portfolio-7">
+							<div class="portfolio-content">
+								<span class="label label-primary">design</span>
+								<div class="portfolio-title">Boy favourable day</div>
+							</div>
+						</div>	
+					</div>
+					<div class="item col-md-4">
+						<div class="portfolio-pic" id="portfolio-8">
+							<div class="portfolio-content">
+								<span class="label label-info">productivity</span>
+								<div class="portfolio-title">Bringing unlocked me</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<p class="title">Get in Touch</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+				<div class="col-md-2">
+					<p class="title">Find Us At</p>
+					<p><%= fa_icon "map-marker" %> Hanoi, Vietnam</p>
+					<p><%= fa_icon "mobile" %> +84123456789</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">© 2017 Copyright Text</div>
+					<div class="col-md-2">Created by anhtthust</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+<% else %>
+	<div class="">
+		<%= render 'shared/feed' %>
+	</div>
+<% end %>

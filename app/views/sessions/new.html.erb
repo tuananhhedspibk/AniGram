@@ -1,0 +1,27 @@
+<div id="login-box">
+	<div class="left-block">
+		<h1>Sign in</h1>
+		<%= form_for(:session, url: login_path) do |f| %>
+			<%= f.email_field :email, placeholder: "harry@gmail.com", class: "form-control" %>
+
+			<%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+
+			<% if @error != "" %>
+				<p class="error-messages"><%= @error %></p>
+			<% end %>
+
+			<%= f.check_box :remember_me, class: "filled-in" %>
+			<%= f.label :remember_me, "Remember me on this computer" %>
+
+			<%= f.submit "Let's Go !" %>
+		<% end %>
+		<br><br>
+		<p>New Users? <%= link_to "Let's Join With Us", signup_path %></p>
+	</div>
+	<div class="right-block">
+		<span class="login-with">Sign in with<br>social network</span>
+		<button class="social-signin facebook">Log in with facebook</button>
+		<button class="social-signin google">Log in with Google+</button>
+	</div>
+	<div class="or">OR</div>
+</div>

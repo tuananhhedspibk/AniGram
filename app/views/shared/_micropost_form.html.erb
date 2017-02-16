@@ -1,0 +1,16 @@
+<%= form_for(@micropost, html: { multipart: true}) do |f| %>
+	<%= f.text_area :cotent, placeholder: "Message" %>
+	<% f.submit do %>
+		<%= fa_icon "camera" %>
+	<% end %>
+	<%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+<% end %>
+
+<script type="text/javascript">
+	$("#micropost_picture").bind("change", function(){
+		var size_in_megabytes = this.files[0].size / 1024 / 1024;
+		if (size_in_megabytes > 5){
+			alert("Maximum file size is 5MB. Please choose a smaller file.");
+		}
+	});
+</script>

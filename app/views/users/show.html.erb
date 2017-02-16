@@ -1,0 +1,57 @@
+<div class="container user-profile">
+	<br><br>
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="avatar">
+				<% if @user.gender == "Male" %>
+					<img src="/assets/ava-default-male.jpg">
+				<% else %>
+					<img src="/assets/ava-default-female.png">
+				<% end %>
+			</div>
+		</div>
+		<div class="col-xs-8">
+			<div class="name-express">
+				<div class="name"><%= @user.name %></div>
+				<div class="config-area">
+					<% if current_user == @user %>
+						<button>Following</button>
+					<% end %>
+				</div>
+			</div>
+			<div class="user-info-express">
+				<div class="number number-post">
+					<%= pluralize(current_user.microposts.count, "post") %>
+				</div>
+				<div class="number number-follower">
+					<strong>16000</strong> followers
+				</div>
+				<div class="number number-following">
+					<strong>55</strong> following
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div class="row pic-row">
+		<div class="col-xs-4 picture">
+			<img src="/assets/pic1.png">
+			<div class="img-info">
+				<div class="number-like"><%= fa_icon "heart" %> 221</div>
+				<div class="number-comment"><%= fa_icon "comment" %> 376</div>
+			</div>
+		</div>
+		<div class="col-xs-4 picture">
+			<img src="/assets/pic2.jpg">
+		</div>
+		<div class="col-xs-4 picture">
+			<img src="/assets/pic3.jpeg">
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-xs-3 col-xs-push-5">
+			<button class="btn-load-more">Load more</button>
+		</div>
+	</div>
+</div>

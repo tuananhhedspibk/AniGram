@@ -1,0 +1,209 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$shadowColor: #bbbbbb;
+
+.content{
+	width: 100%;
+	margin-top: 2px;
+	.title{
+		color: #2d3359;
+		font-weight: bold;
+		font-size: 1.1em;
+		margin: 25px 0;
+	}
+	.btn{
+		background-color: #ff7a69;
+		&:hover{
+			background-color: #f55c49;
+		}
+	}
+	.jumbotron{
+		background-image: url('/assets/cover-pic.jpg');
+		background-position: center center;
+		background-size: cover;
+		width: 100%;
+		height: 400px;
+		text-align: center;
+		.caption{
+			margin-top: 100px;
+			color: white;
+			font-family: 'Roboto Slab', serif;
+			h2{
+				font-size: 3.5em;
+				font-weight: bold;
+			}
+			h4{
+				font-size: 1.8em;
+			}
+			a{
+				margin-top: 20px;
+			}
+		}
+	}
+	.present{
+		background-color: white;
+		margin-top: -65px;
+		border-radius: 5px;
+		box-shadow: 0 10px 10px 2px $shadowColor;
+		.overview{
+			padding: 60px 30px;
+			font-size: 1.3em;
+			color: #a7a7a7;
+			font-family: 'Roboto Slab', serif;
+			.introductory{
+				text-align: center;
+				padding: 35px 120px;
+			}
+			.features{
+				display: inline-block;
+				width: 100%;
+				margin-top: 50px;
+				.feature{
+					width: 33%;
+					text-align: center;
+					float: left;
+					padding: 5px 10px;
+					.caption{
+						font-size: 0.9em;
+					}
+					.fa{
+						font-size: 3.5em;
+					}
+					.fa-th{
+						color: #e91e63;
+					}
+					.fa-th-list{
+						color: #337ab7;
+					}
+					.fa-reorder{
+						color: #4caf50;
+					}
+				}
+			}
+		}
+		.about{
+			background-image: url('/assets/contact.jpg');
+			background-attachment: fixed;
+			background-position: center;
+			background-size: cover;
+			position: relative;
+			padding: 50px 0;
+			display: inline-block;
+			&:after{
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.7);
+				content: "";
+			}
+			.about-caption{
+				z-index: 1;
+				color: white;
+				padding: 50px 10px 0px 35px;
+				font-size: 1.3em;
+				h2{
+					font-weight: bold;
+				}
+			}
+			.about-image{
+				z-index: 1;
+				img{
+					width: 700px;
+				}
+			}
+		}
+		.portfolio{
+			text-align: center;
+			.row{
+				margin-top: 60px;
+			}
+			.overview{
+				.title{
+					font-size: 1.8em;
+				}
+				.caption{
+					padding: 20px 120px;
+				}
+			}
+			.item{
+				.portfolio-pic{
+					border-radius: 5px;
+					height: 270px;
+					box-shadow: 0 5px 5px 2px $shadowColor;
+					background-position: center;
+					background-size: cover;
+					cursor: pointer;
+					.portfolio-content{
+						position: relative;
+						z-index: 2;
+						opacity: 0;
+						padding-top: 80px;
+						font-family: 'Roboto Slab', serif;
+						.label{
+							text-transform: uppercase;
+							padding: 5px 10px;
+							border-radius: 10px;
+						}
+						.portfolio-title{
+							padding-top: 20px;
+							font-weight: bold;
+							color: white;
+							font-size: 1.5em;
+						}
+					}
+				}
+				.portfolio-pic:hover{
+					.portfolio-content{
+						opacity: 1;
+						transition: all .5s ease;
+					}
+				}
+				.portfolio-pic:hover:after{
+					opacity: 1;
+				}
+				.portfolio-pic:after {
+					display: inline-block;
+					position: absolute;
+					top: 0;
+					left: 15px;
+					width: calc(100% - 30px);
+					height: 100%;
+					border-radius: 5px;
+					opacity: 0;
+					background-color: rgba(0, 0, 0, 0.5);
+					content: "";
+					transition: all .3s ease;
+				}
+				#portfolio-1{
+					background-image: url('/assets/portfolio-1.jpg');
+				}
+				#portfolio-2{
+					background-image: url('/assets/portfolio-2.jpg');
+				}
+				#portfolio-3{
+					background-image: url('/assets/portfolio-3.jpg');
+				}
+				#portfolio-4{
+					background-image: url('/assets/portfolio-4.jpg');
+				}
+				#portfolio-5{
+					background-image: url('/assets/portfolio-5.jpg');
+				}
+				#portfolio-6{
+					background-image: url('/assets/portfolio-6.jpg');
+				}
+				#portfolio-7{
+					background-image: url('/assets/portfolio-7.jpg');
+				}
+				#portfolio-8{
+					background-image: url('/assets/portfolio-8.jpg');
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,72 @@
+<% provide(:title, "Edit user") %>
+
+<div class="edit-profile">
+	<div class="left-block-edit">
+		<div class="propic-edit">
+			<% if @user.gender == "Male" %>
+				<img src="/assets/ava-default-male.jpg">
+			<% else %>
+				<img src="/assets/ava-default-female.png">
+			<% end %>
+			<a class="upload-new-pic" href="#">
+				<i class="fa fa-camera" aria-hidden="true"></i>Update Avatar
+			</a>
+		</div>
+		<%= form_for(@user) do |f| %>
+			<div class="name-edit">
+				<% if @user.errors[:name].length != 0%>
+					<div class="error-messages"><%= @user.errors[:name][0] %></div>
+				<% end %>
+				<%= f.label :name, "Registered Name" %>
+				<%= f.text_field :name, class: "form-control" %>
+			</div>
+			<div class="email-edit">
+				<% if @user.errors[:email].length != 0%>
+					<div class="error-messages"><%= @user.errors[:email][0] %></div>
+				<% end %>
+				<%= f.label :email, "Registered Email" %>
+				<%= f.text_field :email, class: "form-control" %>
+			</div>
+			
+			<div class="gender-edit">
+				<%= f.radio_button :gender, "Male", checked: @user.gender == "Male", 
+									id: "male-radio" %>
+				<%= f.label :gender, "Male", for: "male-radio" %>
+				<%= f.radio_button :gender, "Female", checked: @user.gender == "Female",
+									id: "female-radio" %>
+				<%= f.label :gender, "Female", for: "female-radio" %>
+			</div>
+			<br><br>
+			<%= f.submit "Click Me To Update", class: "btn btn-success" %>
+		<% end %>
+	</div>
+	<div class="right-block-edit">
+		<div class="alert alert-info" role="alert">
+			<h3>About Update Profile</h3>
+			<div class="about-me-content">Nullam blandit gravida viverra. Etiam turpis erat, sagittis sit amet felis non, porta porta justo. Integer ornare nibh nulla, id pulvinar metus cursus semper. Vivamus dictum pellentesque mi. Vivamus ipsum tellus, mattis non ex sed, semper sodales ligula. Vivamus luctus lorem.</div>
+		</div>
+		<div class="btn-social-network-list">
+			<a class="btn facebook-btn" href="#"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+			<a class="btn google-btn" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</a>
+			<a class="btn twitter-btn" href="#"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+			<a class="btn linkedin-btn" href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>Linkedin</a>
+		</div>
+		<p style="margin-bottom: 38px;"></p>
+		<h3>Change Your Password</h3>
+		<%= form_for(@user) do |f| %>
+			<% if @user.errors[:password].length != 0%>
+				<div class="error-messages"><%= @user.errors[:password][0] %></div>
+			<% end %>
+			<%= f.label :password, "Enter New Password" %>
+			<%= f.password_field :password, class: "form-control" %>
+		
+			<% if @user.errors[:password_confirmation].length != 0%>
+				<div class="error-messages"><%= @user.errors[:password_confirmation][0] %></div>
+			<% end %>
+			<%= f.label :password_confirmation, "Confirm New Password" %>
+			<%= f.password_field :password_confirmation, class: "form-control" %>
+			<p style="margin-bottom: 73px;"></p>
+			<%= f.submit "Change Password", class: "btn btn-warning" %>
+		<% end %>
+	</div>
+</div>
