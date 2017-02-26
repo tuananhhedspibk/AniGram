@@ -1,2 +1,6 @@
-$(".number-follower").html("<%= @user.followers.count %>");
-$("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
+$("#number-follower-<%= @user.id %>").html("<a href=''>"
+					+ "<strong><%= @user.followers.count %></strong> "
+					+ "<%= 'Follower'.pluralize(@user.followers.count) %>"
+					+ "</a>");
+
+$("#follow-form-<%= @user.id %>").html("<%= escape_javascript(render('users/unfollow')) %>");

@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="user">
+		<div class="avatar">
+			<% if @user.gender == "Male" %>
+				<%= link_to image_tag("/assets/ava-default-male.jpg"), @user %>
+			<% else %>
+				<%= link_to image_tag("/assets/ava-default-female.png"), @user %>
+			<% end %>
+		</div>
+		<div class="user-info">
+			<div class="name"><%= link_to @user.name, @user %></div>
+			<br>
+			<div class="info-detail">
+				<div class="number-post">
+					<strong><%= @user.microposts.count %></strong> 
+					<%= "Post".pluralize(@user.microposts.count) %>
+				</div>
+				<div class="number-follower" id="number-follower-<%= @user.id %>">
+					<a href="">
+						<strong><%= @user.followers.count %></strong> 
+						<%= "Follower".pluralize(@user.followers.count) %>
+					</a>
+				</div>
+				<div class="number-following" id="number-following-<%= @user.id %>">
+					<a href="">
+						<strong><%= @user.following.count %></strong> 
+						<%= "Following".pluralize(@user.following.count) %>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="follow-form">
+			<%= render "follow_form" if logged_in? %>
+		</div>
+	</div>
+</div>

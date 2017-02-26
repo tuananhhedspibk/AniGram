@@ -458,6 +458,26 @@ $shadowColor: #bbbbbb;
 				padding: 10px 10px;
 				border-top-right-radius: 3px;
 				border-top-left-radius: 3px;
+				display: inline-block;
+				width: 100%;
+				.title-content{
+					float: left;
+					display: inline-block;
+				}
+				.link-view-all{
+					display: inline-block;
+					float: left;
+					margin-left: 2px;
+					a{
+						display: inline-block;
+						float: right;
+						color: #039be5;
+						&:hover{
+							color: #026899;
+							text-decoration: underline;
+						}
+					}
+				}
 			}
 			.user-suggest{
 				display: inline-block;

@@ -1,0 +1,22 @@
+<% provide(:title, "All users") %>
+<div class="index-users">
+	<div class="container">
+		<div class="search-filter">
+			<input type="text" name="" class="form-control">
+			<button class="btn btn-primary">Search</button>
+			<input type="checkbox" name="">Dear friend<br>
+			<input type="checkbox" name="">Hot fiend<br>
+			<input type="checkbox" name="">Hard work
+		</div>
+		<div class="list-users">
+			<div class="container">
+				<% @users.each do |user| %>
+					<% unless user.admin? %>
+						<% @user = user %>
+						<%= render @user %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

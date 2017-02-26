@@ -24,16 +24,19 @@
 			</div>
 			<div class="user-info-express">
 				<div class="number number-post">
-					<%= pluralize(current_user.microposts.count, "post") %>
+					<strong><%= @user.microposts.count %></strong> 
+					<%= "Post".pluralize(@user.microposts.count) %>
 				</div>
-				<div class="number number-follower">
+				<div class="number number-follower" id="number-follower-<%= @user.id %>">
 					<a href="">
-						<strong><%= @user.followers.count %></strong> followers
+						<strong><%= @user.followers.count %></strong> 
+						<%= "Follower".pluralize(@user.followers.count) %>
 					</a>
 				</div>
-				<div class="number number-following">
+				<div class="number number-following" id="number-following-<%= @user.id %>">
 					<a href="">
-						<strong><%= @user.following.count %></strong> following
+						<strong><%= @user.following.count %></strong> 
+						<%= "Following".pluralize(@user.following.count) %>
 					</a>
 				</div>
 			</div>
