@@ -300,6 +300,9 @@ $shadowColor: #bbbbbb;
 				input[type="file"]{
 					outline: 0;
 				}
+				input#micropost_picture{
+					width: 100%;
+				}
 				.btn-submit{
 					background-color: #337ab7;
 					text-transform: uppercase;
