@@ -1,3 +1,4 @@
+<% provide(:title, @user.name) %>
 <div class="container user-profile">
 	<br><br>
 	<div class="row">
@@ -14,9 +15,7 @@
 			<div class="name-express">
 				<div class="name"><%= @user.name %></div>
 				<div class="config-area">
-					<% if current_user == @user %>
-						<button>Following</button>
-					<% end %>
+					<%= render 'follow_form' if logged_in? %>
 				</div>
 			</div>
 			<div class="user-info-express">
@@ -24,30 +23,37 @@
 					<%= pluralize(current_user.microposts.count, "post") %>
 				</div>
 				<div class="number number-follower">
-					<strong>16000</strong> followers
+					<a href="">
+						<strong><%= @user.followers.count %></strong> followers
+					</a>
 				</div>
 				<div class="number number-following">
-					<strong>55</strong> following
+					<a href="">
+						<strong><%= @user.following.count %></strong> following
+					</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<br><br>
-	<div class="row pic-row">
-		<div class="col-xs-4 picture">
-			<img src="/assets/pic1.png">
-			<div class="img-info">
-				<div class="number-like"><%= fa_icon "heart" %> 221</div>
-				<div class="number-comment"><%= fa_icon "comment" %> 376</div>
+	<% @microposts.each_with_index do |micropost, index| %>
+		<% if index % 3 == 0 %>
+			<div class="row pic-row">
+				<% range = Range.new(index, index + 2) %>
+				<% @microposts.each_with_index do |micropost, index1| %>
+					<% if range.cover?(index1) %>
+						<div class="col-xs-4 picture">
+							<%= image_tag micropost.picture.url if micropost.picture? %>
+							<div class="img-info">
+								<div class="number-like"><%= fa_icon "heart" %> 221</div>
+								<div class="number-comment"><%= fa_icon "comment" %> 376</div>
+							</div>
+						</div>
+					<% end %>	
+				<% end %>
 			</div>
-		</div>
-		<div class="col-xs-4 picture">
-			<img src="/assets/pic2.jpg">
-		</div>
-		<div class="col-xs-4 picture">
-			<img src="/assets/pic3.jpeg">
-		</div>
-	</div>
+		<% end %>
+	<% end %>
 	<br>
 	<div class="row">
 		<div class="col-xs-3 col-xs-push-5">

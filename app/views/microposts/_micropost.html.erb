@@ -1,9 +1,43 @@
-<li>
-	<div class="avatar">
-		<% if current_user.gender == "Male" %>
-			<img src="/assets/ava-default-male.jpg">
-		<% else %>
-			<img src="/assets/ava-default-female.png">
-		<% end %>
+<li class="micropost" id="micropost-<%= micropost.id %>">
+	<div class="head">
+		<div class="avatar">
+			<% if current_user.gender == "Male" %>
+				<%= link_to image_tag("/assets/ava-default-male.jpg"), current_user %>
+			<% else %>
+				<%= link_to image_tag("/assets/ava-default-female.png"), current_user %>
+			<% end %>
+		</div>
+		<div class="user-name">
+			<%= link_to micropost.user.name, micropost.user %>			
+		</div>
+		<div class="timestamp">
+			<%= time_ago_in_words(micropost.created_at) %>
+		</div>
+		<div class="setting">
+			<div class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><%= link_to "Delete", micropost, method: :delete %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="image-content">
+			<%= image_tag micropost.picture.url if micropost.picture? %>
+		</div>
+		<div class="number-like">112,703 likes</div>
+		<div class="text-content">
+			<%= link_to micropost.user.name, micropost.user %> 
+			<%= micropost.content %>
+		</div>
+	</div>
+	<div class="comment">
+		<div class="comment-form">
+			<%= fa_icon "heart-o" %>
+			<input type="text" placeholder="Add a comment..."></input>
+		</div>
 	</div>
 </li>
