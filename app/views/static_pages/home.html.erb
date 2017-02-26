@@ -153,7 +153,77 @@
 		</div>
 	</footer>
 <% else %>
-	<div class="">
-		<%= render 'shared/feed' %>
+	<div class="main-content">
+		<div class="left-block-content">
+			<div class="post-form">
+				<div class="base-info">
+					<div class="cover"></div>
+					<div class="avatar">
+						<% if current_user.gender == "Male" %>
+							<%= link_to image_tag("/assets/ava-default-male.jpg"), current_user %>
+						<% else %>
+							<%= link_to image_tag("/assets/ava-default-female.png"), current_user %>
+						<% end %>
+					</div>
+					<div class="info">
+						<div class="name"><%= link_to current_user.name, current_user %></div>
+						<div class="follow-info">
+							<div class="follower">Follower(s)<br><strong>160</strong></div>
+							<div class="following">Following<br><strong>220</strong></div>
+						</div>
+					</div>
+				</div>
+				<div class="form">
+					<%= render 'shared/micropost_form' %>
+				</div>
+			</div>
+		</div>
+		<div class="center-block-content">
+			<div class="feed-post">
+				<%= render 'shared/feed' %>
+			</div>
+		</div>
+		<div class="right-block-content">
+			<div class="alert alert-warning alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<strong><%= link_to "Visit your profile!", current_user %></strong> 
+				Check your self, you aren't looking well.
+			</div>
+			<div class="suggest-friend">
+				<div class="suggest-title">
+					You can know all friends here
+				</div>
+				<div class="user-suggest">
+					<div class="avatar">
+						<img src="/assets/ava-default-female.png">
+					</div>
+					<div class="info">
+						<div class="name">Marry Jane</div>
+						<br>
+						<button><%= fa_icon "user-plus" %> Follow</button>
+					</div>
+				</div>
+				<div class="user-suggest">
+					<div class="avatar">
+						<img src="/assets/propic.jpg">
+					</div>
+					<div class="info">
+						<div class="name">Luna Lovegood</div>
+						<br>
+						<button><%= fa_icon "user-plus" %> Follow</button>
+					</div>
+				</div>
+				<div class="user-suggest">
+					<div class="avatar">
+						<img src="/assets/propic2.jpg">
+					</div>
+					<div class="info">
+						<div class="name">Luna Lovegood</div>
+						<br>
+						<button><%= fa_icon "user-plus" %> Follow</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 <% end %>
