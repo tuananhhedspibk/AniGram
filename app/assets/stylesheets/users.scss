@@ -174,21 +174,48 @@
 		.name{
 			display: inline-block;
 			font-size: 2.1em;
-			width: 320px;
+			max-width: 320px;
 			word-wrap: break-word;
 			float: left;
 		}
 		.config-area{
 			display: inline-block;
 			float: left;
-			margin-left: 15px;
-			button{
-				background-color: transparent;
-				padding: 5px 25px;
-				border-radius: 5px;
-				border: none;
+			margin-left: 20px;
+			#edit-profile-btn{
+				padding: 10px 25px;
+				display: inline-block;
+				color: #7b7b7b;
+				text-decoration: none;
+				box-shadow: 0 1px 1px 1px #cccccc;
+				background-color: white;
 				font-weight: bold;
-				box-shadow: 0 1px 2px 1px #e6e6e6;
+				border-radius: 3px;
+				&:hover{
+					color: #7b7b7b;
+				}
+			}
+			#follow-btn, #unfollow-btn{
+				text-transform: none;
+				font-weight: bold;
+				padding: 0 25px;
+				letter-spacing: 0.5px;
+				&:focus{
+					outline: 0;
+				}
+			}
+			#follow-btn{
+				background-color: #3897f0;
+				&:hover{
+					color: white;
+				}
+			}
+			#unfollow-btn{
+				background-color: white;
+				color: #7b7b7b;
+				&:hover{
+					color: #7b7b7b;
+				}
 			}
 		}
 	}
@@ -198,6 +225,28 @@
 			display: inline-block;
 			margin-top: 20px;
 			margin-right: 50px;
+		}
+	}
+	.default-content{
+		width: 100%;
+		background-color: white;
+		display: flex;
+		align-items: center;
+		img{
+			width: 380px;
+			height: 380px;
+		}
+		.quote{
+			font-weight: bold;
+			font-size: 1.1em;
+			width: 100%;
+			text-align: center;
+			.branding-name{
+				font-family: 'Pacifico', cursive;
+				font-size: 2.7em;
+				margin-top: 15px;
+				font-weight: normal;
+			}
 		}
 	}
 	.pic-row{
