@@ -8,7 +8,8 @@ class MicropostsController < ApplicationController
 			redirect_to root_url
 		else
 			@feed_items = []
-			render 'static_pages/home'
+			flash[:danger] = @micropost.errors.full_messages.join(" & ")
+			redirect_to root_url
 		end
 	end
 

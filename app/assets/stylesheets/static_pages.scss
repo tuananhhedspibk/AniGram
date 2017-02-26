@@ -335,6 +335,7 @@ $shadowColor: #bbbbbb;
 				width: 100%;
 				.micropost{
 					display: inline-block;
+					width: 100%;
 					border-radius: 3px;
 					background-color: white;
 					margin-bottom: 30px;
@@ -452,7 +453,7 @@ $shadowColor: #bbbbbb;
 			box-shadow: 0 1px 1px 2px #efefef;
 			width: 270px;
 			.suggest-title{
-				background-color: #f3f3f3;
+				background-color: #e6e6e6;
 				margin-bottom: 15px;
 				padding: 10px 10px;
 				border-top-right-radius: 3px;
