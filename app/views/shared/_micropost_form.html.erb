@@ -1,8 +1,6 @@
 <%= form_for(@micropost, html: { multipart: true}) do |f| %>
-	<%= f.text_area :cotent, placeholder: "Message" %>
-	<% f.submit do %>
-		<%= fa_icon "camera" %>
-	<% end %>
+	<%= f.text_area :content, class: "form-control", placeholder: "Let's say something ..." %>
+	<%= f.submit "Post", class: "btn-submit" %>
 	<%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
 <% end %>
 
