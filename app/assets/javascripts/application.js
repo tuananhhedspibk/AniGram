@@ -36,3 +36,13 @@ function internal_link_click (link) {
 		});
 	} // End if
 }
+
+$(window).scroll(function (event) {
+	var scroll = $(window).scrollTop();
+	if(scroll >= 70){
+		$(".search-filter").css("top", scroll - 35);
+	}
+	else if(scroll == 0){
+		$(".search-filter").css("top", 35);
+	}
+});

@@ -1,0 +1,2 @@
+$('.microposts').append('<%= escape_javascript render(@feed_items) %>');
+$('.pagination').replaceWith('<%= escape_javascript will_paginate(@feed_items) %>');
