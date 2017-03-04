@@ -2,11 +2,20 @@
 <div class="index-users">
 	<div class="container">
 		<div class="search-filter">
-			<input type="text" name="" class="form-control">
-			<button class="btn btn-primary">Search</button>
-			<input type="checkbox" name="">Dear friend<br>
-			<input type="checkbox" name="">Hot fiend<br>
-			<input type="checkbox" name="">Hard work
+			<div class="title">Users search</div>
+			<%= form_tag index_path, method: "get" do %>
+				<%= text_field_tag :name, nil, {placeholder: "Luna Lovegood"} %>
+				<%= check_box_tag :dear_friend %>
+				<%= label_tag :dear_friend %>
+				<br>
+				<%= check_box_tag :hot_friend %>
+				<%= label_tag :hot_friend, "Hot friends" %>
+				<br>
+				<%= check_box_tag :hard_working %>
+				<%= label_tag :hard_working, "Hark working friends" %>
+				<br>
+				<%= submit_tag "Search", class: "btn btn-primary" %>
+			<% end %>
 		</div>
 		<div class="list-users">
 			<div class="container">

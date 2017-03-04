@@ -167,8 +167,16 @@
 					<div class="info">
 						<div class="name"><%= link_to current_user.name, current_user %></div>
 						<div class="follow-info">
-							<div class="follower">Follower(s)<br><strong>160</strong></div>
-							<div class="following">Following<br><strong>220</strong></div>
+							<div class="follower">
+								<%= "Follower".pluralize(current_user.followers.count) %>
+								<br>
+								<strong><%= current_user.followers.count %></strong> 
+							</div>
+							<div class="following">
+								<%= "Following".pluralize(current_user.following.count) %>
+								<br>
+								<strong><%= current_user.following.count %></strong> 
+							</div>
 						</div>
 					</div>
 				</div>

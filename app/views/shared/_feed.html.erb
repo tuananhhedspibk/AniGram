@@ -2,4 +2,21 @@
 	<ul class="microposts">
 		<%= render @feed_items %>
 	</ul>
+	<%= will_paginate @feed_items %>
 <% end %>
+
+<script type="text/javascript">
+	$(function() {
+		if ($('.pagination').length) {
+			$(window).scroll(function() {
+				var url = $('.pagination .next_page').find("a").attr('href');
+				console.log(url);
+				if (url && url != '#' && $(window).scrollTop() > $(document).height() - $(window).height() - 10) {
+					$('.pagination').text("Please Wait...");
+					return $.getScript(url);
+				}
+			});
+			return $(window).scroll();
+		}
+	});
+</script>

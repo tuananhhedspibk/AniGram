@@ -13,7 +13,13 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@microposts = @user.microposts
+		if params[:last_id]
+			@microposts = @user.microposts.where("id < ? and user_id = ?", 
+				params[:last_id], @user.id).limit(6)
+			render json: @microposts.as_json
+		else
+			@microposts = @user.microposts.limit(6)
+		end
 	end
 
 	def create
