@@ -1,0 +1,27 @@
+<div id="followers-modal" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Followers</h4>
+			</div>
+			<div class="modal-body">
+				<% @followers = user.followers %>
+				<div class="users">
+					<% @followers.each do |follower| %>
+						<div class="user">
+							<img class="avatar" src="/assets/ava-default-male.jpg">
+							<%= link_to follower.name, follower %>
+							<% @user = follower %>
+							<% if @user != current_user %>
+								<div class="follow-form">
+									<%= render 'users/follow_form' if logged_in? %>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -4,7 +4,11 @@ class UsersController < ApplicationController
 	before_action :admin_user, only: :destroy
 
 	def index
-		@users = User.all
+		if(params[:search])
+			@users = User.search(params[:search])
+		else
+			@users = User.all
+		end
 	end
 
 	def new
@@ -13,6 +17,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@user1 = @user
+
 		if params[:last_id]
 			@microposts = @user.microposts.where("id < ? and user_id = ?", 
 				params[:last_id], @user.id).limit(6)
@@ -49,18 +55,6 @@ class UsersController < ApplicationController
 		else
 			render 'edit'
 		end
-	end
-
-	def following
-		@title = "Following"
-		@user = User.find(params[:id])
-		@users = @user.following
-	end
-
-	def followers
-		@title = "Followers"
-		@user = User.find(params[:id])
-		@users = @user.followers
 	end
 
 	private

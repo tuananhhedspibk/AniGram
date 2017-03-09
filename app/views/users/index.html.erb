@@ -3,8 +3,8 @@
 	<div class="container">
 		<div class="search-filter">
 			<div class="title">Users search</div>
-			<%= form_tag index_path, method: "get" do %>
-				<%= text_field_tag :name, nil, {placeholder: "Luna Lovegood"} %>
+			<%= form_tag users_path, method: "get" do %>
+				<%= text_field_tag :search, nil, {placeholder: "Luna Lovegood"} %>
 				<%= check_box_tag :dear_friend %>
 				<%= label_tag :dear_friend %>
 				<br>
@@ -12,7 +12,7 @@
 				<%= label_tag :hot_friend, "Hot friends" %>
 				<br>
 				<%= check_box_tag :hard_working %>
-				<%= label_tag :hard_working, "Hark working friends" %>
+				<%= label_tag :hard_working, "Hard working friends" %>
 				<br>
 				<%= submit_tag "Search", class: "btn btn-primary" %>
 			<% end %>

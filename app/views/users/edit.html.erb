@@ -2,17 +2,13 @@
 
 <div class="edit-profile">
 	<div class="left-block-edit">
-		<div class="propic-edit">
-			<% if @user.gender == "Male" %>
-				<img src="/assets/ava-default-male.jpg">
-			<% else %>
-				<img src="/assets/ava-default-female.png">
-			<% end %>
-			<a class="upload-new-pic" href="#">
-				<i class="fa fa-camera" aria-hidden="true"></i>Update Avatar
-			</a>
-		</div>
 		<%= form_for(@user) do |f| %>
+			<div class="propic-edit">
+				<%= image_tag @user.avatar %>
+				<a class="upload-new-pic" href="#">
+					<i class="fa fa-camera" aria-hidden="true"></i>Update Avatar
+				</a>
+			</div>
 			<div class="name-edit">
 				<% if @user.errors[:name].length != 0%>
 					<div class="error-messages"><%= @user.errors[:name][0] %></div>

@@ -30,6 +30,71 @@ $strongGreen: #3cac94;
 a:focus{
 	text-decoration: none;
 	color: white;
+	outline: 0;
+}
+
+.modal{
+	box-shadow: none;
+	background-color: transparent;
+	max-height: 100%;
+	width: 100%;
+	.modal-content{
+		padding: 0;
+		.modal-header{
+			padding: 12px 20px;
+		}
+		.modal-body{
+			padding: 0;
+			.users{
+				.user{
+					border-bottom: solid 1px #e5e5e5;
+					padding: 20px;
+					a{
+						color: black;
+						font-weight: bold;
+						margin-left: 15px;
+						text-decoration: none;
+						&:hover{
+							color: black;
+						}
+					}
+					.avatar{
+						border-radius: 50%;
+						width: 50px;
+						height: 50px;
+					}
+					.follow-form{
+						display: inline-block;
+						float: right;
+						form{
+							.follow-btn, .unfollow-btn{
+								text-transform: none;
+								font-weight: bold;
+								padding: 0 25px;
+								letter-spacing: 0.5px;
+								&:focus{
+									outline: 0;
+								}
+							}
+							.follow-btn{
+								background-color: #3897f0;
+								&:hover{
+									color: white;
+								}
+							}
+							.unfollow-btn{
+								background-color: white;
+								color: #7b7b7b;
+								&:hover{
+									color: #7b7b7b;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 nav{
@@ -58,22 +123,25 @@ nav{
 			}
 		}
 	}
-	.search-box{
-		background-image: url('/assets/searchicon.png');
-		background-repeat: no-repeat;
-		background-position: 8px 3px;
-		border: 1px solid white;
-		border-radius: 5px;
-		background-color: white;
-		padding: 2px 8px 2px 35px;
-		width: 140px;
-		margin-left: 530px;
-		height: 25px;
-		color: black;
-		font-size: 1.1em;
-		transition: width .4s ease-in-out;
-		&:focus{
-			width: 230px;
+	form{
+		display: inline-block;
+		.search-box{
+			background-image: url('/assets/searchicon.png');
+			background-repeat: no-repeat;
+			background-position: 8px 3px;
+			border: 1px solid white;
+			border-radius: 5px;
+			background-color: white;
+			padding: 2px 8px 2px 35px;
+			width: 140px;
+			margin-left: 530px;
+			height: 25px;
+			color: black;
+			font-size: 1.1em;
+			transition: width .4s ease-in-out;
+			&:focus{
+				width: 230px;
+			}
 		}
 	}
 	input[type=text]:focus:not([readonly]){

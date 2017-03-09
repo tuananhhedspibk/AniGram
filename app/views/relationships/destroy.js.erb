@@ -1,6 +1,12 @@
-$("#number-follower-<%= @user.id %>").html("<a href=''>"
+<% if current_user != @user %>
+	$(".number-follower-<%= @user.id %>").html("<a href=''>"
 					+ "<strong><%= @user.followers.count %></strong> "
 					+ "<%= 'Follower'.pluralize(@user.followers.count) %>"
 					+ "</a>");
-
-$("#follow-form-<%= @user.id %>").html("<%= escape_javascript(render('users/follow')) %>");
+<% else %>
+	$(".number-following-<%= @user.id %>").html("<a href=''>"
+					+ "<strong><%= @user.following.count %></strong> "
+					+ "<%= 'Following'.pluralize(@user.following.count) %>"
+					+ "</a>");
+<% end %>
+$(".follow-form-<%= @user.id %>").html("<%= escape_javascript(render('users/follow')) %>");
