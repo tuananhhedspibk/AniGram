@@ -4,7 +4,16 @@
 	<div class="left-block-edit">
 		<%= form_for(@user) do |f| %>
 			<div class="propic-edit">
-				<%= image_tag @user.avatar %>
+				<% if @user.avatar? %>
+					<%= image_tag @user.avatar.url, id: "avatar" %>
+				<% else %>
+					<% if @user.gender == "Male" %>
+						<%= image_tag @user.avatar.default_url("ava-default-male.jpg"), id: "avatar" %>
+					<% else %>
+						<%= image_tag @user.avatar.default_url("ava-default-female.png"), id: "avatar" %>
+					<% end %>
+				<% end %>
+				<%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png",    id: "upload-pic" %>
 				<a class="upload-new-pic" href="#">
 					<i class="fa fa-camera" aria-hidden="true"></i>Update Avatar
 				</a>
@@ -66,3 +75,24 @@
 		<% end %>
 	</div>
 </div>
+<script type="text/javascript">
+	function readURL(input){
+		console.log("123");
+		if(input.files && input.files[0]){
+			var reader = new FileReader();
+
+			reader.onload = function(e){
+				$("#avatar")
+					.attr("src", e.target.result);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	$("a.upload-new-pic").on("click",function(e){
+		e.preventDefault();
+		$("#upload-pic:hidden").trigger("click");
+	});
+	$("#upload-pic:hidden").change(function(){
+		readURL(this);
+	});
+</script>

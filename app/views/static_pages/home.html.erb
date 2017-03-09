@@ -159,7 +159,7 @@
 					<div class="cover"></div>
 					<div class="avatar">
 						<% if current_user.avatar? %>
-							<%= link_to image_tag(current_user.avatar.url), current_user %>
+							<%= link_to image_tag(current_user.avatar.url(:thumb_small)), current_user %>
 						<% else %>
 							<% if current_user.gender == "Male" %>
 								<%= link_to image_tag(current_user.avatar.default_url("ava-default-male.jpg")), current_user %>

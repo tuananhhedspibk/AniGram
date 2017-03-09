@@ -2,7 +2,7 @@
 	<div class="user">
 		<div class="avatar">
 			<% if @user.avatar? %>
-				<%= link_to image_tag(@user.avatar.url), @user %>
+				<%= link_to image_tag(@user.avatar.url(:thumb_small)), @user %>
 			<% else %>
 				<% if @user.gender == "Male" %>
 					<%= link_to image_tag(@user.avatar.default_url("ava-default-male.jpg")), @user %>
