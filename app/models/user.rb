@@ -7,7 +7,9 @@ class User < ApplicationRecord
 					  format: {with: VALIDATE_EMAIL_REGEX},
 					  uniqueness: {case_sensitive: false}
 	has_secure_password
+	mount_uploader :avatar, AvatarUploader
 	validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+	validate :avatar_size
 	has_many :microposts, dependent: :destroy
 	has_many :active_relationships, class_name: "Relationship",
 									foreign_key: "follower_id",
@@ -17,6 +19,7 @@ class User < ApplicationRecord
 									dependent: :destroy
 	has_many :following, through: :active_relationships, source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
+	has_many :likes , dependent: :destroy
 
 	# Returns the hash digest of the given string.
 	def self.digest string
@@ -28,6 +31,15 @@ class User < ApplicationRecord
 	# Returns a random token.
 	def self.new_token
 		SecureRandom.urlsafe_base64
+	end
+
+	# Search users
+	def self.search name
+		User.where("name like ?", "%#{name}%")
+	end
+
+	def already_like?(micropost)
+		micropost.likes.find_by(user_id: self.id) != nil
 	end
 
 	# Remembers a user in the database for use in persistent sessions.
@@ -70,4 +82,11 @@ class User < ApplicationRecord
 	def following? other_user
 		following.include?(other_user)
 	end
+
+	private
+		def avatar_size
+			if avatar.size > 5.megabytes
+				error.add(:avatar, "should be less than 5MB")
+			end
+		end
 end

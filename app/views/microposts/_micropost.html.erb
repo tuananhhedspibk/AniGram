@@ -1,10 +1,14 @@
 <li class="micropost" id="micropost-<%= micropost.id %>">
 	<div class="head">
 		<div class="avatar">
-			<% if current_user.gender == "Male" %>
-				<%= link_to image_tag("/assets/ava-default-male.jpg"), current_user %>
+			<% if micropost.user.avatar? %>
+				<%= link_to image_tag(micropost.user.avatar.url), micropost.user %>
 			<% else %>
-				<%= link_to image_tag("/assets/ava-default-female.png"), current_user %>
+				<% if micropost.user.gender == "Male" %>
+					<%= link_to image_tag(micropost.user.avatar.default_url("ava-default-male.jpg")), micropost.user %>
+				<% else %>
+					<%= link_to image_tag(micropost.user.avatar.default_url("ava-default-female.png")), micropost.user %>
+				<% end %>
 			<% end %>
 		</div>
 		<div class="user-name">
@@ -13,22 +17,24 @@
 		<div class="timestamp">
 			<%= time_ago_in_words(micropost.created_at) %>
 		</div>
-		<div class="setting">
-			<div class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li><%= link_to "Delete", micropost, method: :delete %></li>
-				</ul>
+		<% if current_user == micropost.user %>
+			<div class="setting">
+				<div class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><%= link_to "Delete", micropost, method: :delete %></li>
+					</ul>
+				</div>
 			</div>
-		</div>
+		<% end %>
 	</div>
 	<div class="content">
 		<div class="image-content">
 			<%= image_tag micropost.picture.url if micropost.picture? %>
 		</div>
-		<div class="number-like">112,703 likes</div>
+		<div class="number-like" id="number-like-<%= micropost.id %>"><%= micropost.likes.count %> likes</div>
 		<div class="text-content">
 			<%= link_to micropost.user.name, micropost.user %> 
 			<%= micropost.content %>
@@ -36,7 +42,20 @@
 	</div>
 	<div class="comment">
 		<div class="comment-form">
-			<%= fa_icon "heart-o" %>
+			<% if current_user.already_like?(micropost) %>
+				<% @like = Like.where("user_id = ? and micropost_id = ?", current_user.id, micropost.id).first %>
+				<div id="micropost-like-<%= micropost.id %>">
+					<%= link_to like_path(id: @like.id), method: :delete, remote: true do %>
+						<%= fa_icon "heart" %>
+					<% end %>
+				</div>
+			<% else %>
+				<div id="micropost-like-<%= micropost.id %>">
+					<%= link_to likes_path(micropost_id: micropost.id), method: :post, remote: true do %>
+						<%= fa_icon "heart-o" %>
+					<% end %>
+				</div>
+			<% end %>
 			<input type="text" placeholder="Add a comment..."></input>
 		</div>
 	</div>

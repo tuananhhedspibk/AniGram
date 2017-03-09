@@ -1,0 +1,10 @@
+<% @like = Like.where("user_id = ? and micropost_id = ?", 
+	current_user.id, @micropost.id).first %>
+$("div#micropost-like-<%= @micropost.id %>").html(
+	"<a data-remote='true' rel='nofollow'"
+	+ "data-method='delete' href='/likes/<%= @like.id %>'>"
+	+ "<i class='fa fa-heart'></i>"
+	+ "</a>"
+	);
+$("#number-like-<%= @micropost.id %>")
+	.html("<%= @micropost.likes.count %> <%='like'.pluralize(@micropost.likes.count) %>");

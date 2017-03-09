@@ -158,10 +158,14 @@
 				<div class="base-info">
 					<div class="cover"></div>
 					<div class="avatar">
-						<% if current_user.gender == "Male" %>
-							<%= link_to image_tag("/assets/ava-default-male.jpg"), current_user %>
+						<% if current_user.avatar? %>
+							<%= link_to image_tag(current_user.avatar.url), current_user %>
 						<% else %>
-							<%= link_to image_tag("/assets/ava-default-female.png"), current_user %>
+							<% if current_user.gender == "Male" %>
+								<%= link_to image_tag(current_user.avatar.default_url("ava-default-male.jpg")), current_user %>
+							<% else %>
+								<%= link_to image_tag(current_user.avatar.default_url("ava-default-female.png")), current_user %>
+							<% end %>
 						<% end %>
 					</div>
 					<div class="info">

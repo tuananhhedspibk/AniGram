@@ -6,6 +6,7 @@ class Micropost < ApplicationRecord
 	validates :content, length: {maximum: 155}
 	validates :picture, presence: true
 	validate :picture_size
+	has_many :likes, dependent: :destroy
 
 	private
 
