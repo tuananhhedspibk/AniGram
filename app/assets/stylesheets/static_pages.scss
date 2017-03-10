@@ -394,25 +394,56 @@ $shadowColor: #bbbbbb;
 						}
 						.number-like{
 							font-weight: bold;
-							padding: 20px 20px 10px 20px;
+							padding: 20px 20px 3px 20px;
 						}
 						.text-content{
-							margin: 0 20px 10px 20px;
-							padding-bottom: 20px;
-							border-bottom: solid 1px #eeeeee;
+							margin: 0 20px 5px 20px;
 							a{
 								font-weight: bold;
 							}
 						}
 					}
-					.comment{
+					.comment-section{
 						display: inline-block;
 						width: 100%;
-						padding: 5px 20px 15px 20px;
+						padding: 0 20px 15px 20px;
+						.comments-list{
+							padding-bottom: 15px;
+							border-bottom: solid 1px #eeeeee;
+							.comment{
+								width: 100%;
+								margin-bottom: 5px;
+								display: inline-block;
+								.user-name{
+									font-weight: bold;
+									display: inline-block;
+									word-wrap: break-word;
+									margin-right: 6px;
+									float: left;
+								}
+								.comment-content{
+									float: left;
+									display: inline-block;
+									width: 65%;
+									word-wrap: break-word;
+								}
+								.setting{
+									float: right;
+									.glyphicon{
+										font-size: 0.8em;
+										color: #c7c7c7;
+									}
+									.dropdown-menu{
+										min-width: 140px;
+									}
+								}
+							}
+						}
 						.comment-form{
 							display: flex;
 							align-items: center;
 							width: 100%;
+							margin-top: 15px;
 							.fa{
 								font-size: 1.8em;
 								float: left;

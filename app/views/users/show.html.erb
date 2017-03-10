@@ -58,7 +58,7 @@
 								<%= image_tag micropost.picture.url %>
 								<div class="img-info">
 									<div class="number-like"><%= fa_icon "heart" %> <%= micropost.likes.count %></div>
-									<div class="number-comment"><%= fa_icon "comment" %> 376</div>
+									<div class="number-comment"><%= fa_icon "comment" %> <%= micropost.comments.count %></div>
 								</div>
 							</div>
 						<% end %>	

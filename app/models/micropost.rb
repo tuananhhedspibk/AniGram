@@ -7,6 +7,7 @@ class Micropost < ApplicationRecord
 	validates :picture, presence: true
 	validate :picture_size
 	has_many :likes, dependent: :destroy
+	has_many :comments, dependent: :destroy
 
 	private
 

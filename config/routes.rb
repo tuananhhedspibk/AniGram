@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 			get :following, :followers
 		end
 	end
+	resources :comments,		only: [:create, :destroy]
 	resources :likes, 			only: [:create, :destroy]
 	resources :users
 	resources :microposts,		only: [:create, :destroy]

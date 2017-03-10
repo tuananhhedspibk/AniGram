@@ -279,7 +279,9 @@
 				position: absolute;
 				top: 115px;
 				display: inline-block;
-				left: 85px;
+				left: 0;
+				width: 100%;
+				text-align: center;
 				font-size: 1.1em;
 				font-weight: bold;
 				.number-like{

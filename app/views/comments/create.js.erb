@@ -1,0 +1,28 @@
+$("#micropost-<%= @micropost.id %>").find(".comments-list").append(
+		"<div class='comment'>"
+		+ "<div class='user-name'>"
+		+	"<a href='/users/#{current_user.id}'>"
+		+		"<%= current_user.name %>"
+		+	"</a>"
+		+ "</div>"
+		+ "<div class='comment-content'>"
+		+	"<%= @comment.content %>"
+		+ "</div>"
+		+ "<div class='setting'>"
+		+	"<div class='dropdown'>"
+		+		"<a href='#' class='dropdown-toggle' data-toggle='dropdown'>"
+		+			"<b class='glyphicon glyphicon-remove'></b>"
+		+		"</a>"
+		+		"<ul class='dropdown-menu'>"
+		+			"<li>"
+		+				"<a rel='nofollow' data-method='delete'"
+		+					"href='/comments/#{@comment.id}'>"
+		+					"Delete"
+		+				"</a>"
+		+			"</li>"
+		+		"</ul>"
+		+	"</div>"
+		+ "</div>"
+		+"</div>");
+$("#micropost-<%= @micropost.id %>").find(".comment-form")
+	.find("input#content").val("");
