@@ -46,3 +46,10 @@ $(window).scroll(function (event) {
 		$(".search-filter").css("top", 35);
 	}
 });
+
+$(function(){
+	$(".search-box").keyup(function(){
+		$.get($(".users-search").attr("action"), $(".users-search").serialize(), null, "script");
+		return false;
+	});
+});

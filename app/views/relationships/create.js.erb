@@ -1,17 +1,16 @@
-<% if current_user != @user %>
-	$(".number-follower-<%= @user.id %>").html(
-					"<a href='#followers-modal' data-toggle='modal'" 
-					+ "data-target='#followers-modal'>"
-					+ "<strong><%= @user.followers.count %></strong> "
-					+ "<%= 'Follower'.pluralize(@user.followers.count) %>"
-					+ "</a>");
-<% else %>
-	$(".number-following-<%= @user.id %>").html(
-					"<a href='#following-modal' data-toggle='modal'" 
-					+ "data-target='#following-modal'>"
-					+ "<strong><%= @user.following.count %></strong> "
-					+ "<%= 'Following'.pluralize(@user.following.count) %>"
-					+ "</a>");
-<% end %>
+$(".number-follower-<%= @user.id %>").html(
+			"<a href='#followers-modal' data-toggle='modal'" 
+			+ "data-target='#followers-modal'>"
+			+ "<strong><%= @user.followers.count %></strong> "
+			+ "<%= 'Follower'.pluralize(@user.followers.count) %>"
+			+ "</a>");
+
+$(".number-following-<%= current_user.id %>").html(
+			"<strong><%= current_user.following.count %></strong> "
+			+ "<%= 'Following'.pluralize(current_user.following.count) %>");
+
+$(".following").html(
+			"<%= 'Following'.pluralize(current_user.following.count) %><br>"
+			+ "<strong><%= current_user.following.count %></strong> ");
 
 $(".follow-form-<%= @user.id %>").html("<%= escape_javascript(render('users/unfollow')) %>");

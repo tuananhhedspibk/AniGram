@@ -171,12 +171,12 @@
 					<div class="info">
 						<div class="name"><%= link_to current_user.name, current_user %></div>
 						<div class="follow-info">
-							<div class="follower">
+							<div class="number-follower-<%= current_user.id %> follower">
 								<%= "Follower".pluralize(current_user.followers.count) %>
 								<br>
 								<strong><%= current_user.followers.count %></strong> 
 							</div>
-							<div class="following">
+							<div class="number-following-<%= current_user.id %> following">
 								<%= "Following".pluralize(current_user.following.count) %>
 								<br>
 								<strong><%= current_user.following.count %></strong> 
@@ -209,36 +209,29 @@
 						<%= link_to "View all", users_path %>
 					</div>
 				</div>
-				<div class="user-suggest">
-					<div class="avatar">
-						<img src="/assets/ava-default-female.png">
-					</div>
-					<div class="info">
-						<div class="name">Marry Jane</div>
-						<br>
-						<button><%= fa_icon "user-plus" %> Follow</button>
-					</div>
-				</div>
-				<div class="user-suggest">
-					<div class="avatar">
-						<img src="/assets/propic.jpg">
-					</div>
-					<div class="info">
-						<div class="name">Luna Lovegood</div>
-						<br>
-						<button><%= fa_icon "user-plus" %> Follow</button>
-					</div>
-				</div>
-				<div class="user-suggest">
-					<div class="avatar">
-						<img src="/assets/propic2.jpg">
-					</div>
-					<div class="info">
-						<div class="name">Luna Lovegood</div>
-						<br>
-						<button><%= fa_icon "user-plus" %> Follow</button>
-					</div>
-				</div>
+				<% if @suggestUsersIds != nil %>
+					<% @suggestUsersIds.each do |user_id| %>
+						<% @user = User.find_by(id: user_id.id)%>
+						<div class="user-suggest">
+							<div class="avatar">
+								<% if @user.avatar? %>
+									<%= link_to image_tag(@user.avatar.url(:thumb_super_small)), @user %>
+								<% else %>
+									<% if @user.gender == "Male" %>
+										<%= link_to image_tag(@user.avatar.default_url("ava-default-male.jpg")),     @user %>
+									<% else %>
+										<%= link_to image_tag(@user.avatar.default_url("ava-default-female.png")),   @user %>
+									<% end %>
+								<% end %>
+							</div>
+							<div class="info">
+								<div class="name"><%= link_to @user.name, @user %></div>
+								<br>
+								<%= render 'users/follow_form' %>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>

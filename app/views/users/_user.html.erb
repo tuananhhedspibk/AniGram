@@ -20,16 +20,12 @@
 					<%= "Post".pluralize(@user.microposts.count) %>
 				</div>
 				<div class="number-follower number-follower-<%= @user.id %>">
-					<a href="">
-						<strong><%= @user.followers.count %></strong> 
-						<%= "Follower".pluralize(@user.followers.count) %>
-					</a>
+					<strong><%= @user.followers.count %></strong> 
+					<%= "Follower".pluralize(@user.followers.count) %>
 				</div>
 				<div class="number-following number-following-<%= @user.id %>">
-					<a href="">
-						<strong><%= @user.following.count %></strong> 
-						<%= "Following".pluralize(@user.following.count) %>
-					</a>
+					<strong><%= @user.following.count %></strong> 
+					<%= "Following".pluralize(@user.following.count) %>
 				</div>
 			</div>
 		</div>
