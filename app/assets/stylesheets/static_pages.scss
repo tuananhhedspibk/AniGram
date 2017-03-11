@@ -555,8 +555,10 @@ $shadowColor: #bbbbbb;
 						background-color: white;
 						color: #217ed0;
 						border: none;
+						outline: 0;
+						box-shadow: none;
 						border-radius: 3px;
-						padding: 3px 8px;
+						padding: 2px 8px;
 						border: 1px solid #217ed0;
 						&:hover{
 							background-color: #217ed0;

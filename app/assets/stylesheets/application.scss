@@ -102,6 +102,139 @@ a:focus{
 	}
 }
 
+
+#post-modal{
+	.modal-dialog{
+		font-size: 1.1em;
+		width: 950px;
+		.modal-content{
+			width: 100%;
+			display: inline-block;
+			.modal-body{
+				float: left;
+				display: inline-block;
+				width: 100%;
+				.micropost-img{
+					display: inline-block;
+					float: left;
+					img{
+						width: 500px;
+						height: 500px;
+					}
+				}
+				.micropost-info{
+					padding: 30px 30px;
+					float: left;
+					width: calc(100% - 500px);
+					position: relative;
+					.base-info{
+						display: inline-block;
+						width: 100%;
+						.base-left-block{
+							display: inline-block;
+							float: left;
+							width: 230px;
+							.text-content{
+								width: 100%;
+								word-wrap: break-word;
+								display: inline-block;
+								float: left;
+								a{
+									text-decoration: none;
+									color: black;
+									font-weight: bold;
+									margin-right: 6px;
+									&:hover{
+										color: black;
+									}
+								}
+							}
+							.number-like{
+								float: left;
+								display: inline-block;
+								margin-top: 2px;
+							}
+						}
+						.base-right-block{
+							display: inline-block;
+							float: right;
+							width: calc(100% - 230px);
+							.setting{
+								a{
+									color: black;
+								}
+								float: right;
+							}
+							.time-stamp{
+								float: right;
+								color: #999999;
+								display: inline-block;
+								margin-right: 5px;
+							}
+						}
+					}
+					hr{
+						margin-top: 15px;
+						margin-bottom: 15px;
+					}
+					.comments-list{
+						overflow-y: auto;
+						position: absolute;
+						top: 115px;
+						left: 31px;
+						height: 350px;
+						display: inline-block;
+						width: 388px;
+						.toggle-comments-list{
+							cursor: pointer;
+							color: #999999;
+							margin-bottom: 5px;
+						}
+						.comment{
+							margin-bottom: 3px;
+							display: inline-block;
+							width: 100%;
+							.user-name{
+								display: inline-block;
+								margin-right: 5px;
+								float: left;
+								a{
+									text-decoration: none;
+									color: black;
+									font-weight: bold;
+									margin-right: 6px;
+									&:hover{
+										color: black;
+									}
+								}
+							}
+							.comment-content{
+								width: 250px;
+								word-wrap: break-word;
+								float: left;
+							}
+							.setting{
+								float: right;
+								.glyphicon{
+									font-size: 0.8em;
+									color: #c7c7c7;
+								}
+								a{
+									color: black;
+								}
+								.dropdown-menu{
+									left: -145px;
+									min-width: 60px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 nav{
 	background-color: $strongGreen;
 	margin-bottom: 5px;
