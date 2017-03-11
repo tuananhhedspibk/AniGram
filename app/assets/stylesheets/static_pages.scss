@@ -410,6 +410,11 @@ $shadowColor: #bbbbbb;
 						.comments-list{
 							padding-bottom: 15px;
 							border-bottom: solid 1px #eeeeee;
+							.toggle-comments-list{
+								cursor: pointer;
+								color: #999999;
+								margin-bottom: 5px;
+							}
 							.comment{
 								width: 100%;
 								margin-bottom: 5px;
@@ -545,7 +550,8 @@ $shadowColor: #bbbbbb;
 						word-wrap: break-word;		
 						width: 150px;
 					}
-					button{
+					input[type="submit"]{
+						text-transform: none;
 						background-color: white;
 						color: #217ed0;
 						border: none;

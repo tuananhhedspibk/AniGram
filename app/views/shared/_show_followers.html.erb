@@ -10,7 +10,15 @@
 				<div class="users">
 					<% @followers.each do |follower| %>
 						<div class="user">
-							<img class="avatar" src="/assets/ava-default-male.jpg">
+							<% if follower.avatar? %>
+								<%= image_tag follower.avatar.url(:thumb_small) , class: "avatar" %>
+							<% else %>
+								<% if follower.gender == "Male" %>
+									<%= image_tag follower.avatar.default_url("ava-default-male.jpg"), class: "avatar" %>
+								<% else %>
+									<%= image_tag follower.avatar.default_url("ava-default-female.png"), class: "avatar" %>
+								<% end %>
+							<% end %>
 							<%= link_to follower.name, follower %>
 							<% @user = follower %>
 							<% if @user != current_user %>
