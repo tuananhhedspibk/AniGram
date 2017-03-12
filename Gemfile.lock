@@ -333,7 +333,7 @@ DEPENDENCIES
   materialize-sass
   mini_magick (= 4.5.1)
   mysql2 (>= 0.3.18, < 0.5)
-  pg
+  pg (~> 0.18.4)
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
