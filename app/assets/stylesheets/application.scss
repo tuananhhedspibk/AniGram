@@ -164,6 +164,9 @@ a:focus{
 									color: black;
 								}
 								float: right;
+								.dropdown-menu{
+									min-width: 60px;
+								}
 							}
 							.time-stamp{
 								float: right;
@@ -223,7 +226,7 @@ a:focus{
 									color: black;
 								}
 								.dropdown-menu{
-									left: -145px;
+									left: -150px;
 									min-width: 60px;
 								}
 							}

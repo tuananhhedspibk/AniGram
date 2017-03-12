@@ -83,16 +83,17 @@
 		</div>
 	<% end %>
 	<br>
-	<div class="row">
+	<!--<div class="row">
 		<div class="col-xs-3 col-xs-push-5">
 			<% if @microposts.any? %>
 				<button class="btn-load-more">Load more</button>
 			<% end %>
 		</div>
-	</div>
+	</div>-->
 </div>
 <%= render 'users/popup_post' %>
 
+<% @user = @user1 %>
 <%= render 'shared/show_following', user: @user %>
 <% @user =  @user1 %>
 <%= render 'shared/show_followers', user: @user %>

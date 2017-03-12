@@ -21,10 +21,10 @@ class UsersController < ApplicationController
 
 		if params[:last_id]
 			@microposts = @user.microposts.where("id < ? and user_id = ?", 
-				params[:last_id], @user.id).limit(6)
+				params[:last_id], @user.id)
 			render json: @microposts.as_json
 		else
-			@microposts = @user.microposts.limit(6)
+			@microposts = @user.microposts
 		end
 	end
 
