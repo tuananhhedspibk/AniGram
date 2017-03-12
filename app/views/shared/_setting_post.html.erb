@@ -1,0 +1,12 @@
+<% if current_user == micropost.user %>
+	<div class="setting">
+		<div class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li><%= link_to "Delete", micropost, method: :delete %></li>
+			</ul>
+		</div>
+	</div>
+<% end %>

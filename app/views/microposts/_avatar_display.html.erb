@@ -1,0 +1,9 @@
+<% if micropost.user.avatar? %>
+	<%= link_to image_tag(micropost.user.avatar.url), micropost.user %>
+<% else %>
+	<% if micropost.user.gender == "Male" %>
+		<%= link_to image_tag(micropost.user.avatar.default_url("ava-default-male.jpg")), micropost.user %>
+	<% else %>
+		<%= link_to image_tag(micropost.user.avatar.default_url("ava-default-female.png")), micropost.user %>
+	<% end %>
+<% end %>

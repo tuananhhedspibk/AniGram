@@ -1,0 +1,3 @@
+<%= form_tag comments_path(micropost_id: micropost.id), remote: true do %>
+	<%= text_field_tag :content, nil, placeholder: "Add a comment..." %>
+<% end %>
