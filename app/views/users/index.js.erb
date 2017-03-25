@@ -1,0 +1,3 @@
+$('.list-users').find(".container")
+	.append('<%= escape_javascript render(@users) %>');
+$('.pagination-users').replaceWith('<%= escape_javascript will_paginate(@users) %>');

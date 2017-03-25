@@ -38,6 +38,11 @@ a:focus{
 	outline: 0;
 }
 
+.fa-spinner{
+	color: #3cac94;
+	font-size: 2.8em;
+}
+
 .modal{
 	box-shadow: none;
 	background-color: transparent;
@@ -302,8 +307,8 @@ nav{
 		}
 	}
 	.notifi-dropdown{
-		min-width: 380px;
-		left: -230px;
+		min-width: 430px;
+		left: -280px;
 		padding: 0;
 		li{
 			a{
@@ -319,8 +324,13 @@ nav{
 				}
 				.notifi-content{
 					word-wrap: break-word;
-					max-width: calc(100% - 63px);
+					width: calc(100% - 185px);
 					white-space: normal;
+				}
+				.notifi-time{
+					color: #999999;
+					width: 140px;
+					text-align: right;
 				}
 				&:hover{
 					background-color: transparent;

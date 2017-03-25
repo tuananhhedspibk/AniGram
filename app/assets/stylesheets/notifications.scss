@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .notifications{
+	width: 935px;
+	float: left;
+	text-align: center;
 	.heading{
 		margin-bottom: 15px;
 		font-size: 1.3em;
@@ -10,10 +13,18 @@
 		padding: 5px 15px;
 		border-radius: 10px;
 		display: inline-block;
+		float: left;
 	}
-	width: 935px;
-	float: left;
 	li.notification{
+		background-color: white;
+		margin-bottom: 20px;
+		line-height: 1;
+		color: black;
+		display: inline-block;
+		padding: 15px 15px;
+		box-shadow: 0 1px 1px 2px #efefef;
+		width: 100%;
+		text-align: left;
 		a{
 			padding: 0;
 			display: flex;
@@ -29,21 +40,17 @@
 			}
 			.notifi-content{
 				word-wrap: break-word;
-				max-width: calc(100% - 63px);
+				width: calc(100% - 160px);
 				white-space: normal;
+			}
+			.notifi-time{
+				float: right;
+				color: #999999;
 			}
 			&:hover{
 				background-color: transparent;
 			}
 		}
-		background-color: white;
-		margin-bottom: 20px;
-		line-height: 1;
-		color: black;
-		display: inline-block;
-		padding: 15px 15px;
-		box-shadow: 0 1px 1px 2px #efefef;
-		width: 100%;
 		&:hover{
 			box-shadow: 0 1px 2px 2px #cccccc;
 			transition: all .6s ease;

@@ -380,9 +380,11 @@
 		}
 		.list-users{
 			float: right;
+			text-align: center;
 			width: calc(100% - 450px);
 			display: inline-block;
 			.container{
+				text-align: left;
 				padding-top: 0;
 				width: 100%;
 				padding-left: 45px;

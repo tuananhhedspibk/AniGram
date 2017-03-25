@@ -14,7 +14,7 @@
 					</a>
 					<ul class="dropdown-menu notifi-dropdown">
 						<li>Notifications</li>
-						<%= render current_user.notifications.order('created_at DESC').last(3) %>
+						<%= render current_user.notifications.order('id DESC').first(3) %>
 						<li>
 							<%= link_to "View All", notifications_path %>
 						</li>

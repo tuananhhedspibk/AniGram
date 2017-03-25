@@ -2,5 +2,23 @@
 	<ul class="microposts">
 		<%= render @feed_items %>
 	</ul>
-	<%= will_paginate @feed_items %>
+	<%= will_paginate @feed_items, class: "pagination-posts" %>
 <% end %>
+
+<script type="text/javascript">
+	$(function() {
+		if ($('.pagination-posts').length) {
+			$(window).scroll(function() {
+				var url = $('.pagination-posts .next_page').find("a").attr('href');
+				if (url && url != '#' && $(window).scrollTop() > $(document).height() - $(window).height() - 10) {
+					$('.pagination-posts').html(
+						"<i class='fa fa-spinner fa-spin fa-3x fa-fw'></i>"
+						+ "<span class='sr-only'>Loading...</span>");
+					console.log(url);
+					return $.getScript(url);
+				}
+			});
+			return $(window).scroll();
+		}
+	});
+</script>

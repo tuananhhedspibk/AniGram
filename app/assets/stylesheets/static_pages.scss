@@ -331,7 +331,9 @@ $shadowColor: #bbbbbb;
 		.feed-post{
 			display: inline-block;
 			width: 100%;
+			text-align: center;
 			.microposts{
+				text-align: left;
 				display: inline-block;
 				width: 100%;
 				margin-bottom: 0;
@@ -475,7 +477,7 @@ $shadowColor: #bbbbbb;
 				}
 			}
 			.pagination{
-				margin: 0;
+				margin: 0 auto;
 				visibility: hidden;
 				display: inline-block;
 			}

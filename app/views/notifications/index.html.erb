@@ -4,7 +4,25 @@
 		<ul>
 			<%= render @notifications %>
 		</ul>
-		<%= will_paginate @notifications %>
+		<%= will_paginate @notifications, class: "pagination-notifies" %>
 	</div>
 	<%= render 'static_pages/home_right_block' %>
 </div>
+
+<script type="text/javascript">
+	$(function() {
+		if ($('.pagination-notifies').length) {
+			$(window).scroll(function() {
+				var url = $('.pagination-notifies .next_page').find("a").attr('href');
+				if (url && url != '#' && $(window).scrollTop() > $(document).height() - $(window).height() - 10) {
+					$('.pagination-notifies').html(
+						"<i class='fa fa-spinner fa-spin fa-3x fa-fw'></i>"
+						+ "<span class='sr-only'>Loading...</span>");
+					console.log(url);
+					return $.getScript(url);
+				}
+			});
+			return $(window).scroll();
+		}
+	});
+</script>
