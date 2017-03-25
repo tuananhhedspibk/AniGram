@@ -1,3 +1,150 @@
 // Place all the styles related to the Microposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.show-micropost{
+	width: 636px;
+	margin: 50px auto;
+}
+.micropost{
+	a{
+		font-weight: bold;
+		color: black;
+		&:hover{
+			text-decoration: none;
+			color: black;
+		}
+	}
+	display: inline-block;
+	width: 100%;
+	border-radius: 3px;
+	background-color: white;
+	margin-bottom: 60px;
+	box-shadow: 0 1px 1px 2px #efefef;
+	.head{
+		padding: 15px 15px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		.avatar{
+			display: inline-block;
+			float: left;
+			img{
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+			}
+		}
+		.user-name{
+			display: inline-block;
+			font-size: 1.1em;
+			font-weight: bold;
+			margin-left: 10px;
+			float: left;
+			word-wrap: break-word;
+			width: 400px;
+		}
+		.timestamp{
+			float: right;
+			color: #999999;
+			width: calc(100% - 400px - 50px - 20px);
+			text-align: right;
+		}
+		.setting{
+			.dropdown{
+				margin-left: 10px;
+				display: inline-block;
+				.dropdown-toggle{
+					color: #c0c0c0;
+				}
+				.dropdown-menu{
+					left: -70px;
+					min-width: 50px;
+				}
+			}
+		}
+	}
+	.content{
+		font-size: 1.1em;
+		.image-content{
+			img{
+				width: 100%;
+			}
+		}
+		.number-like{
+			font-weight: bold;
+			padding: 20px 20px 3px 20px;
+		}
+		.text-content{
+			margin: 0 20px 5px 20px;
+		}
+	}
+	.comment-section{
+		display: inline-block;
+		width: 100%;
+		padding: 0 20px 15px 20px;
+		.comments-list{
+			padding-bottom: 15px;
+			border-bottom: solid 1px #eeeeee;
+			.toggle-comments-list{
+				cursor: pointer;
+				color: #999999;
+				margin-bottom: 5px;
+			}
+			.comment{
+				width: 100%;
+				margin-bottom: 5px;
+				display: inline-block;
+				.user-name{
+					font-weight: bold;
+					display: inline-block;
+					word-wrap: break-word;
+					margin-right: 6px;
+					float: left;
+				}
+				.comment-content{
+					float: left;
+					display: inline-block;
+					width: 65%;
+					word-wrap: break-word;
+				}
+				.setting{
+					float: right;
+					.glyphicon{
+						font-size: 0.8em;
+						color: #c7c7c7;
+					}
+					.dropdown-menu{
+						min-width: 140px;
+					}
+				}
+			}
+		}
+		.comment-form{
+			display: flex;
+			align-items: center;
+			width: 100%;
+			margin-top: 15px;
+			.fa{
+				font-size: 1.8em;
+				float: left;
+			}
+			.fa-heart{
+				color: #ed4956;
+			}
+			input{
+				float: left;
+				margin-left: 15px;
+				border: none;
+				width: 500px;
+				height: 40px;
+				font-size: 1.1em;
+				font-family: 'Quicksand', sans-serif;
+				margin: 0 auto;
+				padding: 0 15px;
+				&:focus{
+					box-shadow: none;
+				}
+			}
+		}
+	}
+}

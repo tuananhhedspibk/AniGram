@@ -13,7 +13,13 @@ class MicropostsController < ApplicationController
 		end
 	end
 
+	def show
+		@micropost = Micropost.find_by(id: params[:id])
+	end
+
 	def destroy
+		@notification = Notification.find_by(micropost_id: @micropost.id)
+		@notification.destroy
 		@micropost.destroy
 		flash[:success] = "Post deleted"
 		redirect_to request.referrer || root_url

@@ -1,0 +1,10 @@
+<div class="main-content">
+	<div class="notifications">
+		<div class="heading">Notifications list</div>
+		<ul>
+			<%= render @notifications %>
+		</ul>
+		<%= will_paginate @notifications %>
+	</div>
+	<%= render 'static_pages/home_right_block' %>
+</div>

@@ -301,6 +301,44 @@ nav{
 			width: 100%;
 		}
 	}
+	.notifi-dropdown{
+		min-width: 380px;
+		left: -230px;
+		padding: 0;
+		li{
+			a{
+				padding: 0;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				word-wrap: break-word;
+				img{
+					width: 55px;
+					height: 55px;
+					margin-right: 8px;
+				}
+				.notifi-content{
+					word-wrap: break-word;
+					max-width: calc(100% - 63px);
+					white-space: normal;
+				}
+				&:hover{
+					background-color: transparent;
+				}
+			}
+			line-height: 1;
+			color: black;
+			display: inline-block;
+			padding: 15px 15px;
+			border: 1px solid #f1f1f1;
+			border-left: none;
+			border-right: none;
+			&:hover{
+				background-color: #f5f5f5;
+				transition: background-color .3s ease;
+			}
+		}
+	}
 }
 
 body{

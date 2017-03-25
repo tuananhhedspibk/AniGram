@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310093306) do
+ActiveRecord::Schema.define(version: 20170324154428) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
@@ -41,6 +41,23 @@ ActiveRecord::Schema.define(version: 20170310093306) do
     t.index ["user_id"], name: "index_microposts_on_user_id", using: :btree
   end
 
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "notified_by_id"
+    t.integer  "micropost_id"
+    t.integer  "comment_id"
+    t.integer  "like_id"
+    t.string   "notifi_type"
+    t.boolean  "read",           default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id", using: :btree
+    t.index ["like_id"], name: "index_notifications_on_like_id", using: :btree
+    t.index ["micropost_id"], name: "index_notifications_on_micropost_id", using: :btree
+    t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id", using: :btree
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -69,4 +86,9 @@ ActiveRecord::Schema.define(version: 20170310093306) do
   add_foreign_key "likes", "microposts"
   add_foreign_key "likes", "users"
   add_foreign_key "microposts", "users"
+  add_foreign_key "notifications", "comments"
+  add_foreign_key "notifications", "likes"
+  add_foreign_key "notifications", "microposts"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "notifications", "users", column: "notified_by_id"
 end

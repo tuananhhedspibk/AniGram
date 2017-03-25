@@ -1,0 +1,4 @@
+$('.notifications').find("ul")
+	.append('<%= escape_javascript render(@notifications) %>');
+$('.pagination')
+	.replaceWith('<%= escape_javascript will_paginate(@notifications) %>');

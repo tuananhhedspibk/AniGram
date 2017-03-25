@@ -53,3 +53,16 @@ $(function(){
 		return false;
 	});
 });
+
+$(function() {
+	if ($('.pagination').length) {
+		$(window).scroll(function() {
+			var url = $('.pagination .next_page').find("a").attr('href');
+			if (url && url != '#' && $(window).scrollTop() > $(document).height() - $(window).height() - 10) {
+				$('.pagination').text("Please Wait...");
+				return $.getScript(url);
+			}
+		});
+		return $(window).scroll();
+	}
+});

@@ -21,6 +21,7 @@ class User < ApplicationRecord
 	has_many :followers, through: :passive_relationships, source: :follower
 	has_many :likes , dependent: :destroy
 	has_many :comments, dependent: :destroy
+	has_many :notifications, dependent: :destroy
 
 	# Returns the hash digest of the given string.
 	def self.digest string

@@ -8,10 +8,17 @@
 		<% end %>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<% if logged_in? %>
-				<li>
-					<a href="#">
+				<li class="dropdown">
+					<a href="#" charset="dropdown-toggle" data-toggle="dropdown">
 						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
 					</a>
+					<ul class="dropdown-menu notifi-dropdown">
+						<li>Notifications</li>
+						<%= render current_user.notifications.order('created_at DESC').last(3) %>
+						<li>
+							<%= link_to "View All", notifications_path %>
+						</li>
+					</ul>
 				</li>
 				<li>
 					<%= link_to current_user do %>

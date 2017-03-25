@@ -6,14 +6,18 @@ Rails.application.routes.draw do
 	post '/login', to: 'sessions#create'
 	delete '/logout', to: 'sessions#destroy'
 	get '/index', to: 'users#index'
+	get '/notification/:id/link_through', to: 'notifications#link_through',
+										 as: :link_through
+	get '/notifications', to: 'notifications#index'
 	resources :users do
 		member do
 			get :following, :followers
 		end
 	end
+
 	resources :comments,		only: [:create, :destroy]
 	resources :likes, 			only: [:create, :destroy]
 	resources :users
-	resources :microposts,		only: [:create, :destroy]
+	resources :microposts,		only: [:create, :destroy, :show]
 	resources :relationships,	only: [:create, :destroy]
 end
