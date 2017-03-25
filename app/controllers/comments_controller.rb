@@ -15,7 +15,9 @@ class CommentsController < ApplicationController
 	def destroy
 		@comment = Comment.find_by(id: params[:id])
 		@notification = Notification.find_by(comment_id: @comment.id)
-		@notification.destroy
+		if @notification != nil
+			@notification.destroy
+		end
 		if @comment.destroy
 			respond_to do |format|
 				format.html {redirect_to :back}
