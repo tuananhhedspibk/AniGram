@@ -1,0 +1,42 @@
+<% @suggestUsersIds = get_suggest_user_id %>
+
+<div class="right-block-content">
+	<div class="alert alert-warning alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong><%= link_to "Visit your profile!", current_user %></strong> 
+		Check your self, you aren't looking well.
+	</div>
+	<div class="suggest-friend">
+		<div class="suggest-title">
+			<div class="title-content">
+				Suggested for you &middot;
+			</div>
+			<div class="link-view-all">
+				<%= link_to "View all", users_path %>
+			</div>
+		</div>
+		<% if @suggestUsersIds != nil %>
+			<% @suggestUsersIds.each do |user_id| %>
+				<% @user = User.find_by(id: user_id.id)%>
+				<div class="user-suggest">
+					<div class="avatar">
+						<% if @user.avatar? %>
+							<%= link_to image_tag(@user.avatar.url(:thumb_super_small)), @user %>
+						<% else %>
+							<% if @user.gender == "Male" %>
+								<%= link_to image_tag(@user.avatar.default_url("ava-default-male.jpg")),     @user %>
+							<% else %>
+								<%= link_to image_tag(@user.avatar.default_url("ava-default-female.png")),   @user %>
+							<% end %>
+						<% end %>
+					</div>
+					<div class="info">
+						<div class="name"><%= link_to @user.name, @user %></div>
+						<br>
+						<%= render 'users/follow_form' %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

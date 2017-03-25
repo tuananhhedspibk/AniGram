@@ -1,0 +1,36 @@
+<div class="left-block-content">
+	<div class="post-form">
+		<div class="base-info">
+			<div class="cover"></div>
+			<div class="avatar">
+				<% if current_user.avatar? %>
+					<%= link_to image_tag(current_user.avatar.url(:thumb_small)), current_user %>
+				<% else %>
+					<% if current_user.gender == "Male" %>
+						<%= link_to image_tag(current_user.avatar.default_url("ava-default-male.jpg")), current_user %>
+					<% else %>
+						<%= link_to image_tag(current_user.avatar.default_url("ava-default-female.png")), current_user %>
+					<% end %>
+				<% end %>
+			</div>
+			<div class="info">
+				<div class="name"><%= link_to current_user.name, current_user %></div>
+				<div class="follow-info">
+					<div class="number-follower-<%= current_user.id %> follower">
+						<%= "Follower".pluralize(current_user.followers.count) %>
+						<br>
+						<strong><%= current_user.followers.count %></strong> 
+					</div>
+					<div class="number-following-<%= current_user.id %> following">
+						<%= "Following".pluralize(current_user.following.count) %>
+						<br>
+						<strong><%= current_user.following.count %></strong> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form">
+			<%= render 'shared/micropost_form' %>
+		</div>
+	</div>
+</div>

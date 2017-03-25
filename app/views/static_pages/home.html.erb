@@ -153,86 +153,8 @@
 	</footer>
 <% else %>
 	<div class="main-content">
-		<div class="left-block-content">
-			<div class="post-form">
-				<div class="base-info">
-					<div class="cover"></div>
-					<div class="avatar">
-						<% if current_user.avatar? %>
-							<%= link_to image_tag(current_user.avatar.url(:thumb_small)), current_user %>
-						<% else %>
-							<% if current_user.gender == "Male" %>
-								<%= link_to image_tag(current_user.avatar.default_url("ava-default-male.jpg")), current_user %>
-							<% else %>
-								<%= link_to image_tag(current_user.avatar.default_url("ava-default-female.png")), current_user %>
-							<% end %>
-						<% end %>
-					</div>
-					<div class="info">
-						<div class="name"><%= link_to current_user.name, current_user %></div>
-						<div class="follow-info">
-							<div class="number-follower-<%= current_user.id %> follower">
-								<%= "Follower".pluralize(current_user.followers.count) %>
-								<br>
-								<strong><%= current_user.followers.count %></strong> 
-							</div>
-							<div class="number-following-<%= current_user.id %> following">
-								<%= "Following".pluralize(current_user.following.count) %>
-								<br>
-								<strong><%= current_user.following.count %></strong> 
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="form">
-					<%= render 'shared/micropost_form' %>
-				</div>
-			</div>
-		</div>
-		<div class="center-block-content">
-			<div class="feed-post">
-				<%= render 'shared/feed' %>
-			</div>
-		</div>
-		<div class="right-block-content">
-			<div class="alert alert-warning alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<strong><%= link_to "Visit your profile!", current_user %></strong> 
-				Check your self, you aren't looking well.
-			</div>
-			<div class="suggest-friend">
-				<div class="suggest-title">
-					<div class="title-content">
-						Suggested for you &middot;
-					</div>
-					<div class="link-view-all">
-						<%= link_to "View all", users_path %>
-					</div>
-				</div>
-				<% if @suggestUsersIds != nil %>
-					<% @suggestUsersIds.each do |user_id| %>
-						<% @user = User.find_by(id: user_id.id)%>
-						<div class="user-suggest">
-							<div class="avatar">
-								<% if @user.avatar? %>
-									<%= link_to image_tag(@user.avatar.url(:thumb_super_small)), @user %>
-								<% else %>
-									<% if @user.gender == "Male" %>
-										<%= link_to image_tag(@user.avatar.default_url("ava-default-male.jpg")),     @user %>
-									<% else %>
-										<%= link_to image_tag(@user.avatar.default_url("ava-default-female.png")),   @user %>
-									<% end %>
-								<% end %>
-							</div>
-							<div class="info">
-								<div class="name"><%= link_to @user.name, @user %></div>
-								<br>
-								<%= render 'users/follow_form' %>
-							</div>
-						</div>
-					<% end %>
-				<% end %>
-			</div>
-		</div>
+		<%= render 'static_pages/home_left_block' %>
+		<%= render 'static_pages/home_center_block' %>
+		<%= render 'static_pages/home_right_block' %>
 	</div>
 <% end %>
