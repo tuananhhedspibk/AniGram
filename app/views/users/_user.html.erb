@@ -1,38 +1,41 @@
-<div class="row">
-	<div class="user">
-		<div class="avatar">
-			<% if @user.avatar? %>
-				<%= link_to image_tag(@user.avatar.url(:thumb_small)), @user %>
-			<% else %>
-				<% if @user.gender == "Male" %>
-					<%= link_to image_tag(@user.avatar.default_url("ava-default-male.jpg")), @user %>
+<% if user.admin? == false %>
+	<div class="row">
+		<div class="user">
+			<div class="avatar">
+				<% if user.avatar? %>
+					<%= link_to image_tag(user.avatar.url(:thumb_small)), user %>
 				<% else %>
-					<%= link_to image_tag(@user.avatar.default_url("ava-default-female.png")), @user %>
+					<% if user.gender == "Male" %>
+						<%= link_to image_tag(user.avatar.default_url("ava-default-male.jpg")), user %>
+					<% else %>
+						<%= link_to image_tag(user.avatar.default_url("ava-default-female.png")), user %>
+					<% end %>
 				<% end %>
-			<% end %>
-		</div>
-		<div class="user-info">
-			<div class="name"><%= link_to @user.name, @user %></div>
-			<br>
-			<div class="info-detail">
-				<div class="number-post">
-					<strong><%= @user.microposts.count %></strong> 
-					<%= "Post".pluralize(@user.microposts.count) %>
-				</div>
-				<div class="number-follower number-follower-<%= @user.id %>">
-					<strong><%= @user.followers.count %></strong> 
-					<%= "Follower".pluralize(@user.followers.count) %>
-				</div>
-				<div class="number-following number-following-<%= @user.id %>">
-					<strong><%= @user.following.count %></strong> 
-					<%= "Following".pluralize(@user.following.count) %>
+			</div>
+			<div class="user-info">
+				<div class="name"><%= link_to user.name, user %></div>
+				<br>
+				<div class="info-detail">
+					<div class="number-post">
+						<strong><%= user.microposts.count %></strong> 
+						<%= "Post".pluralize(user.microposts.count) %>
+					</div>
+					<div class="number-follower number-follower-<%= user.id %>">
+						<strong><%= user.followers.count %></strong> 
+						<%= "Follower".pluralize(user.followers.count) %>
+					</div>
+					<div class="number-following number-following-<%= user.id %>">
+						<strong><%= user.following.count %></strong> 
+						<%= "Following".pluralize(user.following.count) %>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="follow-form">
-			<% if current_user != @user %>
-				<%= render "follow_form" if logged_in? %>
-			<% end %>
+			<div class="follow-form">
+				<% if current_user != user %>
+					<% @user = user %>
+					<%= render "follow_form" if logged_in? %>
+				<% end %>
+			</div>
 		</div>
 	</div>
-</div>
+<% end %>

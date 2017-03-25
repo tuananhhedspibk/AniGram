@@ -22,7 +22,9 @@
 					<% if current_user?(@user) %>
 						<%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-profile-btn" %>
 					<% else %>
-						<%= render 'follow_form' if logged_in? %>
+						<% if @user.admin? == false %>
+							<%= render 'follow_form' if logged_in? %>
+						<% end %>
 					<% end %>
 				</div>
 			</div>
