@@ -424,6 +424,7 @@
 							display: inline-block;
 							margin-top: 15px;
 							.number-post, .number-following, .number-follower{
+								cursor: pointer;
 								a{
 									color: black;
 									text-decoration: none;

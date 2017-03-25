@@ -4,8 +4,11 @@ $(".number-follower-<%= @user.id %>").html("<a href=''>"
 			+ "</a>");
 
 $(".number-following-<%= current_user.id %>").html(
-			"<strong><%= current_user.following.count %></strong> "
-			+ "<%= 'Following'.pluralize(current_user.following.count) %>");
+			"<a href='#following-modal' data-toggle='modal'" 
+			+ "data-target='#following-modal'>"
+			+ "<strong><%= current_user.following.count %></strong> "
+			+ "<%= 'Following'.pluralize(current_user.following.count) %>"
+			+ "</a>");
 
 $(".following").html(
 			"<%= 'Following'.pluralize(current_user.following.count) %><br>"
