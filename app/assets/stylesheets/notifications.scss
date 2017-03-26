@@ -45,6 +45,8 @@
 			}
 			.notifi-time{
 				float: right;
+				width: 180px;
+				text-align: right;
 				color: #999999;
 			}
 			&:hover{
@@ -55,6 +57,9 @@
 			box-shadow: 0 1px 2px 2px #cccccc;
 			transition: all .6s ease;
 		}
+	}
+	li.unread{
+		background-color: #e7ecf5;
 	}
 }
 

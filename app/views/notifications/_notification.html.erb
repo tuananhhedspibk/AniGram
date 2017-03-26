@@ -1,20 +1,43 @@
-<li class="notification">
-	<%= link_to link_through_path(notification) do %>
-		<% if notification.notified_by.avatar? %>
-			<%= image_tag notification.notified_by.avatar.url(:thumb) %>
-		<% else %>
-			<% if notification.notified_by.gender == "Male" %>
-				<%= image_tag notification.notified_by.avatar.default_url("ava-default-male.jpg") %>
+<% if notification.read == true %>
+	<li class="notification">
+		<%= link_to link_through_path(notification) do %>
+			<% if notification.notified_by.avatar? %>
+				<%= image_tag notification.notified_by.avatar.url(:thumb) %>
 			<% else %>
-				<%= image_tag notification.notified_by.avatar.default_url("ava-default-female.png") %>
+				<% if notification.notified_by.gender == "Male" %>
+					<%= image_tag notification.notified_by.avatar.default_url("ava-default-male.jpg") %>
+				<% else %>
+					<%= image_tag notification.notified_by.avatar.default_url("ava-default-female.png") %>
+				<% end %>
 			<% end %>
+			<div class="notifi-content">
+				<strong><%= notification.notified_by.name %></strong> has 
+				<%= notification.notifi_type %>ed on your post
+			</div>
+			<div class="notifi-time">
+				<%= time_ago_in_words(notification.created_at) %>
+			</div>
 		<% end %>
-		<div class="notifi-content">
-			<strong><%= notification.notified_by.name %></strong> has 
-			<%= notification.notifi_type %>ed on your post
-		</div>
-		<div class="notifi-time">
-			<%= time_ago_in_words(notification.created_at) %>
-		</div>
-	<% end %>
-</li>
+	</li>
+<% else %>
+	<li class="notification unread">
+		<%= link_to link_through_path(notification) do %>
+			<% if notification.notified_by.avatar? %>
+				<%= image_tag notification.notified_by.avatar.url(:thumb) %>
+			<% else %>
+				<% if notification.notified_by.gender == "Male" %>
+					<%= image_tag notification.notified_by.avatar.default_url("ava-default-male.jpg") %>
+				<% else %>
+					<%= image_tag notification.notified_by.avatar.default_url("ava-default-female.png") %>
+				<% end %>
+			<% end %>
+			<div class="notifi-content">
+				<strong><%= notification.notified_by.name %></strong> has 
+				<%= notification.notifi_type %>ed on your post
+			</div>
+			<div class="notifi-time">
+				<%= time_ago_in_words(notification.created_at) %>
+			</div>
+		<% end %>
+	</li>
+<% end %>
