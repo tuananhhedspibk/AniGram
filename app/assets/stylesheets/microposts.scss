@@ -74,8 +74,24 @@
 			font-weight: bold;
 			padding: 20px 20px 3px 20px;
 		}
-		.text-content{
+		.micropost-content{
 			margin: 0 20px 5px 20px;
+			.text-content{
+				display: inline-block;
+				margin-right: 10px;
+			}
+			.tag-lists{
+				display: inline-block;
+				div.tag{
+					display: inline-block;
+					padding: 5px 8px;
+					background-color: #e1f0ff;
+					color: #0366d6;
+					margin-right: 5px;
+					border-radius: 2px;
+					cursor: pointer;
+				}	
+			}
 		}
 	}
 	.comment-section{
@@ -115,6 +131,23 @@
 					}
 					.dropdown-menu{
 						min-width: 140px;
+					}
+				}
+				.reply{
+					width: 100%;
+					float: left;
+					margin-top: 3px;
+					.reply-link{
+						color: #0366d6;
+						display: inline-block;
+						cursor: pointer;
+						&:hover{
+							text-decoration: underline;
+						}
+					}
+					.comment-time{
+						color: #999999;
+						display: inline-block;
 					}
 				}
 			}

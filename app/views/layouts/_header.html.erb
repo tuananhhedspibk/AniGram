@@ -10,7 +10,17 @@
 			<% if logged_in? %>
 				<li class="dropdown">
 					<a href="#" charset="dropdown-toggle" data-toggle="dropdown">
-						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+						<% count = 0 %>
+						<% current_user.notifications.each do |notification| %>
+							<% if !notification.read %>
+								<% count += 1 %>
+							<% end %>
+						<% end %>
+						<% if count == 0 %>
+							<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+						<% else %>
+							<span class="glyphicon glyphicon-heart" style="color: #fa3e3e;" aria-hidden="true"></span>
+						<% end %>
 					</a>
 					<ul class="dropdown-menu notifi-dropdown">
 						<li>Notifications</li>

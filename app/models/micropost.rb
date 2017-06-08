@@ -9,6 +9,8 @@ class Micropost < ApplicationRecord
 	has_many :likes, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	has_many :notifications, dependent: :destroy
+	acts_as_taggable 	# Alias for acts_as_taggable_on :tags
+	ActsAsTaggableOn.delimiter = ' '
 
 	private
 

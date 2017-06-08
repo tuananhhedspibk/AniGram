@@ -217,7 +217,7 @@ a:focus{
 								}
 							}
 							.comment-content{
-								width: 250px;
+								width: 230px;
 								word-wrap: break-word;
 								float: left;
 							}
@@ -233,6 +233,23 @@ a:focus{
 								.dropdown-menu{
 									left: -150px;
 									min-width: 60px;
+								}
+							}
+							.reply{
+								width: 100%;
+								float: left;
+								margin-top: 3px;
+								.reply-link{
+									color: #0366d6;
+									display: inline-block;
+									cursor: pointer;
+									&:hover{
+										text-decoration: underline;
+									}
+								}
+								.comment-time{
+									color: #999999;
+									display: inline-block;
 								}
 							}
 						}

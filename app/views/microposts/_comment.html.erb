@@ -16,4 +16,10 @@
 			</div>
 		</div>
 	<% end %>
+	<div class="reply">
+		<div class="reply-link">Reply</div> &#8226; 
+		<div class="comment-time">
+			<%= comment.created_at.strftime("%B #{comment.created_at.day}, %Y at %H:%M") %>
+		</div>
+	</div>
 </div>

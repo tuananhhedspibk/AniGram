@@ -24,6 +24,13 @@ $("#micropost-<%= @micropost.id %>").find(".comments-list").append(
 		+		"</ul>"
 		+	"</div>"
 		+ "</div>"
+		+ "<div class='reply'>"
+		+	"<div class='reply-link'>Reply</div> &#8226; "
+		+		"<div class='comment-time'>"
+		+			"<%= @comment.created_at.strftime('%B %d, %Y at %H:%M') %>"
+		+		"</div>"
+		+	"</div>"
+		+ "</div>"
 		+"</div>");
 $("#micropost-<%= @micropost.id %>").find(".comment-form")
 	.find("input#content").val("");

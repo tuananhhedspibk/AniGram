@@ -1,7 +1,8 @@
 <%= form_for(@micropost, html: { multipart: true}) do |f| %>
 	<%= f.text_area :content, class: "form-control", placeholder: "Let's say something ..." %>
-	<%= f.submit "Post", class: "btn-submit" %>
+	<%= f.text_field :tag_list, class: "form-control", placeholder: "Add topics" %>
 	<%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+	<%= f.submit "Post", class: "btn-submit" %>
 <% end %>
 
 <script type="text/javascript">
